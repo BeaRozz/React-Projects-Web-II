@@ -1,0 +1,89 @@
+.card-personaje-light,
+.card-personaje-dark{
+    width: 100%; /* Ancho completo del contenedor */
+    height: 80%; /* Alto completo del contenedor */
+    padding: 2px; /* Sin margen */
+    margin: 0;
+    display: flex; /* Flexbox para centrar contenido */
+    flex-direction: row; /* Dirección de la columna */
+    justify-content: center; /* Centrado vertical */
+    align-items: center; /* Centrado horizontal */
+}
+
+.card-personaje-light{
+    background-color: rgb(238, 232, 232);
+}
+
+.card-personaje-dark{
+    background-color: rgb(51, 51, 51);
+}
+
+.info-personaje-light,
+.info-personaje-dark{
+    width: 100%; /* Ancho completo del contenedor */
+    height: 100%; /* Alto completo del contenedor */
+    margin: 0; /* Sin margen */
+    padding: 0; /* Sin relleno */
+    display: flex; /* Flexbox para centrar contenido */
+    flex-direction: column; /* Dirección de la columna */
+    justify-content: center; /* Centrado vertical */
+    align-items: center; /* Centrado horizontal */
+}
+
+.container-microinfo-persoanje-light,
+.container-microinfo-persoanje-dark {
+    width: 100%; /* Ancho completo del contenedor */
+    height: 100%; /* Alto completo del contenedor */
+    margin: 0; /* Sin margen */
+    padding: 0; /* Sin relleno */
+    display: flex; /* Flexbox para centrar contenido */
+    flex-direction: row; /* Dirección de la columna */
+    flex-wrap: wrap;
+    justify-content: center; /* Centrado vertical */
+    align-items: center; /* Centrado horizontal */
+    gap: 10px; /* Espacio entre los elementos */
+}
+
+.container-microinfo-persoanje-light p,
+.container-microinfo-persoanje-dark p{
+    font-size: 0.7rem;
+    margin: 0;
+    padding: 0; /* Sin relleno */
+}
+
+.card-personaje-likes-light,
+.card-personaje-likes-dark{
+    width: 100%; /* Ancho completo del contenedor */
+    height: 80%; /* Alto completo del contenedor */
+    margin: 0; /* Sin margen */
+    padding: 0; /* Sin relleno */
+    display: flex; /* Flexbox para centrar contenido */
+    flex-direction: row; /* Dirección de la columna */
+    justify-content: center; /* Centrado vertical */
+    align-items: center; /* Centrado horizontal */
+    gap: 20px; /* Espacio entre los elementos */
+    padding: 5px;
+    padding: 5px; /* Espacio inferior */
+}
+
+.btn-personaje-light,
+.btn-personaje-dark {
+    width: 80%; /* Ancho del botón */
+    height: 60%; /* Alto del botón */
+    margin: 0; /* Sin margen */
+    padding: 0; /* Sin relleno */
+    display: flex; /* Flexbox para centrar contenido */
+    flex-direction: column; /* Dirección de la columna */
+    justify-content: center; /* Centrado vertical */
+    align-items: center; /* Centrado horizontal */
+    gap: 10px; /* Espacio entre los elementos */
+    text-align: center; /* Alineación del texto al centro */
+}   
+
+.btn-text-light,
+.btn-text-dark {
+    font-weight: lighter; /* Peso de la fuente */
+    color: rgb(138, 138, 138); /* Color del texto */
+    text-decoration: none; /* Sin subrayado */
+    text-align: center; /* Alineación del texto al centro */
+}

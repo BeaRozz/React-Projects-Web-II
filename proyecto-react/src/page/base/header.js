@@ -1,23 +1,34 @@
-import { Link } from "react-router-dom";
 import MyRoutes from "../../router/router";
 import '../../styles/base/header.css'
+import { useTheme } from "../../context/context";
+import { NavLink } from 'react-router-dom';
+import { FaSun, FaMoon } from 'react-icons/fa';
 
 export default function Header() 
 {
-    return (
-        <div className="App">
-            <header>
-            <nav>
-              <ul className='nav-list'>
-                <li><Link to="/">Inicio</Link></li>
-                <li><Link to="/about">About us</Link></li>
-              </ul>
+  const { theme, toggleTheme } = useTheme();
 
-            </nav>          
+  return (
+      <div className="App">
+        <header>
+          <nav className={`nav-${theme}`}>
+            <ul className={`nav-list-${theme}`}>
+              <li><NavLink to="/" activeClassName="active">Inicio</NavLink></li>
+              <li><NavLink to="/buscador" activeClassName="active">Buscador</NavLink></li>
+              <li><NavLink to="/landing" activeClassName="active">Landing</NavLink></li>
+            </ul>
 
-            </header>
+            <div className={`nav-list-${theme}`}>
+              <button onClick={toggleTheme}>
+                {theme === "light" ? <FaSun className="icono" /> : <FaMoon className="icono" />}
+              </button>
+            </div>
 
-            <MyRoutes />
-        </div>
+          </nav>          
+
+        </header>
+
+        <MyRoutes />
+      </div>
     )
 }

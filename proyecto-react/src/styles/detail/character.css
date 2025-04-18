@@ -1,0 +1,76 @@
+.base-personaje-light,
+.base-personaje-dark {
+    margin: 0;
+    padding: 0;
+    width: 96%;
+    min-height: 84vh;
+    margin-bottom: 30px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.base-personaje-light{
+    background-color: #ffffff;
+    color: black;
+}
+
+.base-personaje-dark{
+    background-color: #212121;
+    color: #ffffff;
+}
+
+.base-personaje-light h1,
+.base-personaje-dark h1 {
+    font-size: 2.5rem;
+    margin: 20px 0;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.container-personaje-light, .container-personaje-dark {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    gap: 50px;
+}
+
+.img-personaje-light, .img-personaje-dark {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-personaje-light img, .img-personaje-dark img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+}
+
+.info-personaje-ind-light, .info-personaje-ind-dark {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    justify-content: center;
+    padding: 20px;
+    font-size: 1.2rem;
+}
+
+.container-result-buscador-light, .container-result-buscador-dark {
+    width: 95%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    margin-top: 50px;
+    gap: 20px;
+}
