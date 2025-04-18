@@ -1,12 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
+
 .base{
-    background-color: rgb(146, 218, 236);
-    height: 92.5vh;
+    background-color: #030713;
     margin: 0;
     padding: 0;
     
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: first baseline;
     align-items: center;
     font-family: Arial, Helvetica, sans-serif;
+}
+
+.head{
+    width: 100%;
+    height: 68vh;
+    background-image: url(https://cdn.pixabay.com/photo/2019/07/15/08/32/australia-4338882_1280.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-family: "Figtree", sans-serif;
+    font-weight: 300;
+    margin-bottom: 1rem;
+}
+
+.head-title{
+    text-align: left;
+    width: 45%;
+    margin: 0;
+    padding: 0;
+    padding-left: 20px;
+}
+
+.head-title h2{
+    font-size: 1.5rem;
+    margin: 0;
+    padding: 0;
+}
+
+.head-title input{
+    margin-top: 1.8rem;
+    padding: 0.5rem;
+    width: 80%;
+    border-radius: 0.3rem;
+    border: none;
+}
+
+.content{
+    min-height: 25.2vh;
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.mensajes{
+    color: #BCBEC1;
 }
