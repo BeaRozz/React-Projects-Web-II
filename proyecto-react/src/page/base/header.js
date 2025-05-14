@@ -7,13 +7,13 @@ export default function Header()
     return (
         <div className="App">
             <header>
-            <nav>
+            {/* <nav>
               <ul className='nav-list'>
                 <li><Link to="/">Inicio</Link></li>
                 <li><Link to="/about">About us</Link></li>
               </ul>
 
-            </nav>          
+            </nav>           */}
 
             </header>
 
