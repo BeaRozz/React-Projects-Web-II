@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import FichaCategoria from '../components/ficha-categoria';
 import FichaReceta from '../components/ficha-receta';
+import { FiSearch } from 'react-icons/fi'
 
 export default function Home() {
 
@@ -12,6 +13,8 @@ export default function Home() {
   const [categorieSelected, setCategorieSelected] = useState(getLastCategory());
   const [platillos, setPlatillos] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [word, setWord] = useState(null);
+  const [filteredPlatillos, setFilteredPlatillos] = useState([]);
 
   // Al cargar la página, se obtienen las categorías
   useEffect(() =>{
@@ -37,6 +40,23 @@ export default function Home() {
     localStorage.setItem('lastCategory', categorieSelected);
   }, [categorieSelected])
   
+
+  // Cuando se escribe una palabra, se filtran los platillos
+  useEffect(() => {
+    const hasWord = word !== null && word !== undefined;
+    
+    if(!hasWord || word.trim() === "") {setFilteredPlatillos(platillos); return;}
+
+    const searchWords = word.split(" ");
+
+    const results = platillos.filter((item) => {
+      const searchableText = `${item.strMeal || ""}`.toLowerCase();
+      return searchWords.every((word) => searchableText.includes(word));
+    });
+
+    setFilteredPlatillos(results);
+    
+  }, [word, platillos]);
 
     return (
       <div className="base">
@@ -85,7 +105,22 @@ export default function Home() {
             
             {/* BARRA DE BÚSQUEDA Y SORTBY */}
             <div className="search">
-              <h1>Hola</h1>
+              <div className="search-bar">
+                <FiSearch className="search-icon" />
+                <input
+                  type="text"
+                  placeholder="Search..."
+                  onChange={(e) => setWord(e.target.value)}
+                />
+              </div>
+              <div className="sortby">
+                <select>
+                  <option value="sortBy">Sort by</option>
+                  <option value="name">Name</option>
+                  <option value="category">Category</option>
+                  <option value="area">Area</option>
+                </select>
+              </div>
             </div>
 
             {/* GRID DE PLATILLOS */}
@@ -93,11 +128,15 @@ export default function Home() {
               {loading ? (
                 <div className="loading">Loading...</div>
               ) : (
-                platillos.map((platillo) => (
+                filteredPlatillos.length > 0 ?(
+                  filteredPlatillos.map((platillo) => (
                   <div key={platillo.idMeal} className="platillo">
                     <FichaReceta receta={platillo} />
                   </div>
                 ))
+                ): (
+                  <h1>No se encontraron resultados para: {word}</h1>
+                )
               )}
             </div>
           </div>

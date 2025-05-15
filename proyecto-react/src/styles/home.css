@@ -155,6 +155,44 @@
     row-gap: 2rem;
 }
 
+/* BARRA DE BÚSQUEDA Y SORTBY */
+.search{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    padding-bottom: 1.5rem;
+    padding-top: 1.5rem;
+}
+
+/* BARRA DE BÚSQUEDA */
+.search-bar {
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+  border: 2px solid #555;
+  padding: 0.5rem 1rem;
+  width: 60%;
+  max-width: 500px;
+}
+
+.search-bar input {
+  border: none;
+  outline: none;
+  background: transparent;
+  margin-left: 0.5rem;
+  width: 100%;
+  font-size: 1rem;
+  color: #747474;
+}
+
+.search-icon {
+  color: #555;
+  font-size: 1.2rem;
+}
+
+
 
 
 /* RESPONSIVE */
