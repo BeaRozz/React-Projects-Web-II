@@ -9,7 +9,7 @@ import FichaReceta from '../components/ficha-receta';
 export default function Home() {
 
   const [categories, setCategories] = useState([]);
-  const [categorieSelected, setCategorieSelected] = useState("Beef");
+  const [categorieSelected, setCategorieSelected] = useState(getLastCategory());
   const [platillos, setPlatillos] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -34,7 +34,7 @@ export default function Home() {
     }
 
     fetchPlatillos()
-    console.log(categorieSelected);
+    localStorage.setItem('lastCategory', categorieSelected);
   }, [categorieSelected])
   
 
@@ -117,4 +117,11 @@ async function getPlatillosByCategory(category) {
   const response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`);
   const data = await response.json();
   return data.meals;
+}
+
+function getLastCategory(){
+  const getLastCategory = localStorage.getItem('lastCategory') || "Beef";
+  console.log(getLastCategory);
+  // Si no hay categoría guardada, se asigna "Beef" como valor por defecto
+  return getLastCategory;
 }
