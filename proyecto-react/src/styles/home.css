@@ -1,6 +1,7 @@
 .base{
  background-color: #0E1326;
- height: 100vh;
+ min-height: 100vh;
+ height: auto;
  margin: 0;
  padding: 0;
     
@@ -11,6 +12,7 @@
  font-family: 'Georgia', serif;
 }
 
+/* HERO TITLE */
 .hero {
   display: flex;
   align-items: flex-end;
@@ -54,6 +56,7 @@
   align-items: flex-start;
   min-width: 55%;
   height: 100%;
+  padding-bottom: 1.5rem;
 }
 
 /* LOGO */
@@ -94,11 +97,61 @@
   width: 50%;
 }
 
+
+/* CONTENT-MAIN */
+.content-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items:start;
+    width: 100%;
+    height: auto;
+    padding-top: 2rem;
+    color: white;
+    padding-bottom: 3rem;
+}
+
+.categorias{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: end;
+    width: 28%;
+    height: auto;
+}
+
+.categorias h1{
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: white;
+    text-align: center;
+    font-weight: 500;
+    text-align: left;
+    width: 90%;
+}
+
+.categories{
+    width: 90%;
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 1rem;
+}
+
+/* RESPONSIVE */
 @media (max-width: 768px) {
+
+  .base{
+    min-height: 100vh;
+    height: auto;
+    padding: 0;
+  }
+    /* RESPONSIVE HERO TITLE */
   .hero {
     flex-direction: row;
     align-items: flex-end;
-    height: 20%;
+    height: auto;
     padding-top: 2rem;
   }
 
@@ -129,7 +182,7 @@
   }
 
   .title-row {
-    width: 100%;
+    width: 90%;
     margin-bottom: 0.3rem;
   }
 
@@ -144,8 +197,28 @@
 
   .right {
     font-size: 2rem;
-    width: 100%;
+    width: 90%;
     text-align: right;
     margin-top: 0.3rem;
+  }
+
+/* RESPONSIVE CONTENT */
+  .content-container {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1rem;
+  }
+
+  .categorias {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: auto;
+  }
+
+  .categories{
+    padding-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   }
 }
