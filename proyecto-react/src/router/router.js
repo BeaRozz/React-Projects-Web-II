@@ -1,12 +1,12 @@
 import {Routes, Route} from 'react-router-dom';
 import Home from '../page/Home';
-import About from '../page/About';
+import Recepie from '../page/Recepie';
 
 export default function MyRoutes(){
     return(
         <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
+            <Route path="/recepie/:id" element={<Recepie />} />
         </Routes>
     )
 }
