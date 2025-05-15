@@ -44,3 +44,11 @@
     padding: 1rem;
     font-weight: 600;
 }
+
+.category-false:hover,
+.category-true:hover{
+    cursor: pointer;
+    background-color: #FEBD2F;
+    color: #0E1326;
+    transition: all 0.3s ease;
+}
