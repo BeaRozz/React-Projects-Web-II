@@ -1,0 +1,156 @@
+.base-recepie{
+    min-height: 100vh;
+    height: auto;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #0E1326;
+}
+
+.recepie-container {
+  max-width: 960px;
+  margin: auto;
+  padding: 1.5rem;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #0E1326;
+  color: #ffffff;
+  min-height: 100vh;
+}
+
+.recepie-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.meal-image {
+  width: 100%;
+  max-width: 800px;
+  height: 250px;
+  object-fit: cover; 
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+
+.recepie-info h1 {
+  font-size: 2rem;
+  margin: 0.5rem 0;
+}
+
+.recepie-info h3,
+.meal-id {
+  font-size: 1rem;
+  margin: 0.25rem 0;
+}
+
+
+.section {
+  margin-bottom: 2rem;
+}
+
+.section h2 {
+  font-size: 1.5rem;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 0.3rem;
+  margin-bottom: 1rem;
+}
+
+.ingredients-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+}
+
+.ingredient-card {
+  background: #1f263f;
+  color: white;
+  border-radius: 10px;
+  padding: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-start;
+  position: relative;
+}
+
+.ingredient-card button {
+  align-self: flex-end;
+  background-color: #cc4444;
+  color: white;
+  border: none;
+  padding: 2px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.ingredient-card button:hover {
+  background-color: #d84343;
+}
+
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+a {
+  color: #81cfff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.ingredients-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.restaurar-btn {
+  background-color: #337ab7;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.restaurar-btn:hover {
+  background-color: #286090;
+}
+
+
+@media (max-width: 600px) {
+  .recepie-header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .recepie-header img {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .ingredient-card {
+    font-size: 0.95rem;
+  }
+}
