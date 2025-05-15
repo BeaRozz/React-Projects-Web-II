@@ -1,17 +1,19 @@
 import '../styles/home.css'
 import piña from '../img/piña.png'
 import { GiChefToque } from 'react-icons/gi'
-import { use, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useState } from 'react';
 import FichaCategoria from '../components/ficha-categoria';
+import FichaReceta from '../components/ficha-receta';
 
 export default function Home() {
 
   const [categories, setCategories] = useState([]);
-  const [categorieSelected, setCategorieSelected] = useState(null);
+  const [categorieSelected, setCategorieSelected] = useState("Beef");
   const [platillos, setPlatillos] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  // Al cargar la página, se obtienen las categorías
   useEffect(() =>{
     const fetchCategories = async () => {
       const data = await getCategories();
@@ -23,7 +25,15 @@ export default function Home() {
   }, [])
 
 
+  // Cuando se selecciona una categoría, se obtienen los platillos de esa categoría
   useEffect(() => {
+    const fetchPlatillos = async () =>{
+      const data = await getPlatillosByCategory(categorieSelected);
+      setPlatillos(data);
+      setLoading(false);
+    }
+
+    fetchPlatillos()
     console.log(categorieSelected);
   }, [categorieSelected])
   
@@ -76,13 +86,22 @@ export default function Home() {
             {/* BARRA DE BÚSQUEDA Y SORTBY */}
             <div className="search">
               <h1>Hola</h1>
-              <h2>Adios</h2>
             </div>
 
             {/* GRID DE PLATILLOS */}
             <div className="platillos">
+              {loading ? (
+                <div className="loading">Loading...</div>
+              ) : (
+                platillos.map((platillo) => (
+                  <div key={platillo.idMeal} className="platillo">
+                    <FichaReceta receta={platillo} />
+                  </div>
+                ))
+              )}
             </div>
           </div>
+
         </div>
       </div>
     );
@@ -92,4 +111,10 @@ async function getCategories() {
   const response = await fetch('https://www.themealdb.com/api/json/v1/1/categories.php');
   const data = await response.json();
   return data.categories;
+}
+
+async function getPlatillosByCategory(category) {
+  const response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`);
+  const data = await response.json();
+  return data.meals;
 }
