@@ -15,6 +15,8 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
   const [word, setWord] = useState(null);
   const [filteredPlatillos, setFilteredPlatillos] = useState([]);
+  const [sortValue, setSortValue] = useState("asc");
+
 
   // Al cargar la página, se obtienen las categorías
   useEffect(() =>{
@@ -45,7 +47,7 @@ export default function Home() {
   useEffect(() => {
     const hasWord = word !== null && word !== undefined;
     
-    if(!hasWord || word.trim() === "") {setFilteredPlatillos(platillos); return;}
+    if(!hasWord || word.trim() === "") {setFilteredPlatillos(sortPlatillos(platillos, sortValue)); return;}
 
     const searchWords = word.split(" ");
 
@@ -54,9 +56,16 @@ export default function Home() {
       return searchWords.every((word) => searchableText.includes(word));
     });
 
-    setFilteredPlatillos(results);
+    setFilteredPlatillos(sortPlatillos(results, sortValue));
     
   }, [word, platillos]);
+
+  // Cuando se selecciona un valor de ordenamiento, se ordenan los platillos
+  useEffect(() => {
+    const sortedPlatillos = sortPlatillos([...filteredPlatillos], sortValue);
+    setFilteredPlatillos(sortedPlatillos);
+  }, [sortValue]);
+
 
     return (
       <div className="base">
@@ -114,11 +123,9 @@ export default function Home() {
                 />
               </div>
               <div className="sortby">
-                <select>
-                  <option value="sortBy">Sort by</option>
-                  <option value="name">Name</option>
-                  <option value="category">Category</option>
-                  <option value="area">Area</option>
+                <select onChange={(e) => setSortValue(e.target.value)}>
+                  <option value="asc">Sort by: Asc</option>
+                  <option value="desc">Sort by: Desc</option>
                 </select>
               </div>
             </div>
@@ -163,4 +170,13 @@ function getLastCategory(){
   console.log(getLastCategory);
   // Si no hay categoría guardada, se asigna "Beef" como valor por defecto
   return getLastCategory;
+}
+
+function sortPlatillos(platillos, sortValue) {
+  if (sortValue === "asc") {
+    return platillos.sort((a, b) => a.strMeal.localeCompare(b.strMeal));
+  } else if (sortValue === "desc") {
+    return platillos.sort((a, b) => b.strMeal.localeCompare(a.strMeal));
+  }
+  return platillos;
 }

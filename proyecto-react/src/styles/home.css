@@ -192,6 +192,11 @@
   font-size: 1.2rem;
 }
 
+/* SORTBY NO VISIBLE EN DISPOSITIVOS GRANDES */
+.sortby{
+  display: none;
+}
+
 
 
 
@@ -282,5 +287,28 @@
   .content{
     width: 90%;
     padding: 0;
+  }
+
+  .search-bar{
+    width: 40%;
+  }
+
+  .sortby{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    height: auto;
+    padding-bottom: 1.5rem;
+    padding-top: 1.5rem;
+  }
+
+  .sortby select{
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 20px;
+    background-color: #fff;
+    color: #555;
+    font-size: 1rem;
   }
 }
